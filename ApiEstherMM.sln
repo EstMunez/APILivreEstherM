@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiEstherMM", "ApiEstherMM\ApiEstherMM.csproj", "{7709C73E-1B3C-422E-9436-740039AF096D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiEstherMM.Tests", "ApiEstherMM.Tests\ApiEstherMM.Tests.csproj", "{707EFA6C-EF11-4870-9B82-E333F7291999}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7709C73E-1B3C-422E-9436-740039AF096D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7709C73E-1B3C-422E-9436-740039AF096D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7709C73E-1B3C-422E-9436-740039AF096D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7709C73E-1B3C-422E-9436-740039AF096D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{707EFA6C-EF11-4870-9B82-E333F7291999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{707EFA6C-EF11-4870-9B82-E333F7291999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{707EFA6C-EF11-4870-9B82-E333F7291999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{707EFA6C-EF11-4870-9B82-E333F7291999}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

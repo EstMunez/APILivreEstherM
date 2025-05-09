@@ -1,0 +1,34 @@
+﻿@page "/favorites"
+@inject ApiEstherMM.Services.FavoriteService FavoriteService
+
+<h3>Mes livres favoris</h3>
+
+@if (!FavoriteService.GetFavorites().Any())
+{
+    <p>Aucun favori pour le moment.</p>
+}
+else
+{
+    <ul>
+        @foreach (var book in FavoriteService.GetFavorites())
+        {
+            <li>
+                <strong>@book.Title</strong> - @book.Author
+                <br />
+                @if (!string.IsNullOrEmpty(book.CoverUrl))
+                {
+                    <img src="@book.CoverUrl" width="100" />
+                }
+                <br />
+                <button @onclick="() => Remove(book.Key)">Supprimer</button>
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private void Remove(string key)
+    {
+        FavoriteService.RemoveFromFavorites(key);
+    }
+}

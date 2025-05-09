@@ -1,0 +1,62 @@
+﻿@using ApiEstherMM.Models
+
+
+@page "/search"
+@inject ApiEstherMM.Services.BookService BookService
+@inject ApiEstherMM.Services.FavoriteService FavoriteService
+
+<h3>Recherche de livres</h3>
+
+<input @bind="searchTerm" placeholder="Entrez un mot-clé" />
+<button @onclick="SearchBooks">Rechercher</button>
+
+@if (books != null)
+{
+    <ul>
+        @foreach (var book in books)
+        {
+            <li>
+                <strong>@book.Title</strong> - @book.Author
+                <br />
+                @if (!string.IsNullOrEmpty(book.CoverUrl))
+                {
+                    <img src="@book.CoverUrl" width="100" />
+                }
+                <br />
+                @if (FavoriteService.IsFavorite(book.Key))
+                {
+                    <button @onclick="() => Remove(book.Key)">Supprimer des favoris</button>
+                }
+                else
+                {
+                    <button @onclick="() => Add(book)">Ajouter aux favoris</button>
+                }
+            </li>
+        }
+
+    </ul>
+}
+
+@code {
+    private string searchTerm;
+    private List<ApiEstherMM.Models.Book> books;
+
+    private async Task SearchBooks()
+    {
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            books = await BookService.SearchBooksAsync(searchTerm);
+        }
+    }
+    
+    private void Add(Book book)
+    {
+        FavoriteService.AddToFavorites(book);
+    }
+
+    private void Remove(string key)
+    {
+        FavoriteService.RemoveFromFavorites(key);
+    }
+
+}
