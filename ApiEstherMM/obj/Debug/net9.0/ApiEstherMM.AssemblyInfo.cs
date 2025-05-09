@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiEstherMM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49df4bc8ccaad852a32c6639de06f74fe9a817fd")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiEstherMM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiEstherMM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

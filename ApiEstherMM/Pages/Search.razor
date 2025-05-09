@@ -1,6 +1,5 @@
 ﻿@using ApiEstherMM.Models
 
-
 @page "/search"
 @inject ApiEstherMM.Services.BookService BookService
 @inject ApiEstherMM.Services.FavoriteService FavoriteService
@@ -10,7 +9,11 @@
 <input @bind="searchTerm" placeholder="Entrez un mot-clé" />
 <button @onclick="SearchBooks">Rechercher</button>
 
-@if (books != null)
+@if (isLoading)
+{
+    <p><em>🔍 Chargement en cours...</em></p>
+}
+else if (books != null)
 {
     <ul>
         @foreach (var book in books)
@@ -33,22 +36,27 @@
                 }
             </li>
         }
-
     </ul>
 }
 
 @code {
     private string searchTerm;
-    private List<ApiEstherMM.Models.Book> books;
+    private List<Book> books;
+    private bool isLoading = false;
 
     private async Task SearchBooks()
     {
+        isLoading = true;
+        books = null;
+
         if (!string.IsNullOrWhiteSpace(searchTerm))
         {
             books = await BookService.SearchBooksAsync(searchTerm);
         }
+
+        isLoading = false;
     }
-    
+
     private void Add(Book book)
     {
         FavoriteService.AddToFavorites(book);
@@ -58,5 +66,4 @@
     {
         FavoriteService.RemoveFromFavorites(key);
     }
-
 }
